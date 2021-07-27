@@ -1,6 +1,7 @@
 .Home {
     display: flex;
     flex-direction: column;    
+    background-color: rgb(243,237,237);
 }
 
 .background {
@@ -8,7 +9,7 @@
       height: 450px;
       mask-image: linear-gradient(to bottom ,rgba(0,0,0,1),rgba(0,0,0,0));
       margin-bottom: -150px;
-      z-index: -1;
+      z-index: 0;
 }
 .Products {
     display: flex;

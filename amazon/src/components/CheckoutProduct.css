@@ -1,0 +1,48 @@
+.checkoutProduct {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.imageContainer {
+    margin-right: 20px;
+}
+.productImage {
+    object-fit: contain;
+    width: 180px;
+    height: 180px;
+  
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+}
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.contentContainer > button {
+    background: #f0c14b;
+    border: 1px solid;
+    border-color: #a88734 #9cfe31 #846a29;
+    width: max-content;
+    margin-top: 10px;
+}
+
+.r {
+    font-size: 16px;
+}
+
+@media (max-width: 510px)
+{
+    .title {
+        font-size: 15px;
+    }
+.r {
+    font-size: 10px;
+}
+}

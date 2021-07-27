@@ -1,11 +1,24 @@
 import React from 'react'
 import "./Product.css"
+import {useDispatch,useSelector} from "react-redux";
+import {addtoBasket} from "../action";
 
 function Product({id,title,price,rating,image}) {
     let arr=[];
     for(var i=0;i<rating;i++)
     arr.push(i);
-
+    const dispatch=useDispatch();
+    // const curr_basket=useSelector(state => state.basket)
+ const handleClick=() => {
+     const item={
+         id: id,
+         title: title,
+         price: price,
+         rating: rating,
+         image: image
+     }
+   dispatch(addtoBasket(item));
+ }
     return (
         <div className="Product">
         <div className="each">
@@ -21,7 +34,7 @@ function Product({id,title,price,rating,image}) {
               <img className="image" src={image}></img>
           </div>
           <div className="botton">
-          <button>Add to Bakset</button>
+          <button onClick={handleClick}>Add to Basket</button>
           </div>
           </div>
         </div>

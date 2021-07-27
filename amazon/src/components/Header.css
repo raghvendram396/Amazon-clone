@@ -12,8 +12,8 @@
 .logo {
     object-fit: contain;
     width: 100px;
-    margin-left:2.5%;
-    margin-right: 5px;
+    margin-left:8%;
+    margin-right: 20px;
 }
 
 .header_search {
@@ -37,7 +37,14 @@ margin-right: 20px;
     color: white;
     margin-right: 12px;
 }
+.basket {
+ display: inline;
+}
 
+.basket > small {
+    margin-left: 5px;
+    font-weight: 500
+}
 .Lineone {
     font-size: 11px;
 }
@@ -45,4 +52,33 @@ margin-right: 20px;
 .Linetwo {
     font-size: 14px;
     font-weight: 800;
+}
+
+@media (max-width: 612px)
+{
+    .logo {
+        object-fit: contain;
+        width: 80px;
+        margin-left:2.5%;
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 556px)
+{
+    .logo {
+        object-fit: contain;
+        width: 60px;
+        margin-left:2.5%;
+        margin-right: 5px;
+    }
+}
+
+@media (max-widht: 512px) {
+    .logo {
+        object-fit: contain;
+        width: 45px;
+        margin-left:2.5%;
+        margin-right: 5px;
+    }
 }
