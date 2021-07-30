@@ -4,7 +4,9 @@ import "./Payment.css";
 import {useSelector} from "react-redux";
 import CheckoutProduct from './CheckoutProduct';
 import {db} from "../firebase";
+import Card from "./Card";
 import { AccordionDetails } from '@material-ui/core';
+// import { CardElement ,useElements, useStripe } from '@stripe/react-stripe-js';
 
 function Payment() {
     const basket=useSelector(state => state.basket);
@@ -47,8 +49,12 @@ function Payment() {
                 <div className="paymentitems">{basket.map(item => <CheckoutProduct title={item.title} id={item.id} price={item.price} rating={item.rating} image={item.image} hidden={true} />)}</div>
             </div>
             <div className="details">
-                <div>
+                <div className="delieveryheading">
                     <h5>Payment Method</h5>
+                    <p>Enter Card details</p>
+                </div>
+                <div className="paymentcard">
+                <Card />
                 </div>
             </div>
         </div>

@@ -28,6 +28,8 @@
 
 .delieveryheading {
 margin-right: 30px;
+margin-top: auto;
+margin-bottom: auto;
 }
 
 .address {
@@ -40,4 +42,8 @@ font-weight: 400;
 margin-left: 30px;
 display: flex;
 flex-direction: column;
+}
+
+.paymentcard {
+    margin-left: 30px;
 }

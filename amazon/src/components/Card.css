@@ -1,0 +1,11 @@
+.card {
+    display: flex;
+    margin-bottom: 20px;
+    border: none;
+}
+
+.card > button {
+    background: #f1c04b;
+    border-radius: 2px;
+    border-color: #a88734 #9c7e31 #846a29;
+}
