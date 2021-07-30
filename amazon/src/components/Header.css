@@ -82,3 +82,29 @@ margin-right: 20px;
         margin-right: 5px;
     }
 }
+
+.auth {
+    display: flex;
+    justify-content: center;
+}
+.circle {
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    text-align: center;
+    display: flex;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #cd9042;
+    border-color: #a88734 #9c7e31 #846a29;
+    margin-bottom: -3px;
+   
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .link {
+      text-decoration: none;
+  }
+
+ 

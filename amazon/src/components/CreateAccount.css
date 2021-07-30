@@ -1,0 +1,37 @@
+.forms {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.createAc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.image {
+    margin-top:20px;
+    width: 150px;
+    object-fit: contain;
+}
+
+.form-control {
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.forms > button {
+    background: #f0c14b;
+    border-color: #a88734 #9c7e31 #846a29;
+    margin-top: 5px;
+    border-radius: 2px;
+    width: 100%;
+}
+
+.forms > p {
+    width: 290px;
+}

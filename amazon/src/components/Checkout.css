@@ -1,4 +1,6 @@
 .checkout {
+    background: white;
+    background-color: white;
     display: flex;
     margin-top: 5px;
     margin-left: 10px;
@@ -13,6 +15,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    background-color: white;
 }
 
 .left > h4 {
@@ -36,11 +39,12 @@
     margin-left: -1.5px;
 }
 
-.right > button {
+.link > button {
     margin-top: 10px;
     background: #f0c14b;
     border-color: #a88734 #9c7e31 #846a29;
     border-radius: 2px;
+    width: 100%;
     
 }
 
@@ -50,6 +54,9 @@
     margin-left: 20px;
 }
 
+.link {
+    text-decoration: none;
+}
 @media (max-width: 832px) {
     .checkout {
         flex-direction: column;

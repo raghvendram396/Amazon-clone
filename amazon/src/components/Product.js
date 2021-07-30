@@ -30,9 +30,9 @@ function Product({id,title,price,rating,image}) {
                 {arr.map(i => <span>✨</span>)}
              </span>
             </div>     
-          <div className="product_image">
-              <img className="image" src={image}></img>
-          </div>
+          {/* <div className="product_image"> */}
+              <img className="IMAGE" src={image}></img>
+          {/* </div> */}
           <div className="botton">
           <button onClick={handleClick}>Add to Basket</button>
           </div>
