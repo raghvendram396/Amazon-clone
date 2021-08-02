@@ -34,24 +34,25 @@ function Header() {
    }
     return (
         <div className="Header">
-        <Link to="/">
+        <Link to="/" className="link">
         <img className="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8HU4Gu-b_CtjPRqbjIZ6DeFcAoH-EFypP0JzKc6MhZv1p_hJqS3XxEbE1DhMv9MIWcEI&usqp=CAU"></img>
         </Link> <input type="text" className="header_search"></input>
          <SearchIcon className="header_searchIcon" />
          <div className="right_nav">
-         <Link to={!user && "/login"} className="link">
+         <Link to={!user && "/login"} className="link"  className="link">
          <div className="nav_content">
          <span className="auth">{name!=="" &&  <div className="circle">{name[0]}</div>}</span>
              <span className="Lineone" >{name==="" && "Hello Guest"}</span>
              <span className="Linetwo" onClick={handleSignout}>{user ? "Sign out": "Sign in"}</span>
          </div>
          </Link>
+         <Link to="/orders" className="link">
          <div className="nav_content"><span className="Lineone">Returns</span>
-             <span className="Linetwo">& Orders</span></div>
+             <span className="Linetwo">& Orders</span></div></Link>
              {/* <div className="topclass"> */}
          <div  className="nav_content"><span className="Lineone">Your</span>
              <span className="Linetwo">Prime</span></div>
-             <Link to="/checkout">
+             <Link to="/checkout" className="link">
          <div className="nav_content basket"> <ShoppingBasketIcon className="shopping" /><small>{basket.length}</small></div></Link>
          </div>
         </div>

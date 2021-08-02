@@ -54,8 +54,7 @@ function Card() {
                     payload: false
                 })
                 dispatch({
-                    type: "ADD_TO_BASKET",
-                    payload: []
+                    type: "CLEAR",
                 })
             history.replace("/orders")})
             .catch(err => {

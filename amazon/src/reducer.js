@@ -10,6 +10,10 @@ const reducer=(state=initialstate,action) => {
             ...state,
             basket: [...state.basket, action.payload]
         }
+        case "CLEAR" : return {
+            ...state,
+            basket: []
+        }
         case "REMOVE_FROM_BASKET": {
         let index=state.basket.findIndex(item => item.id===action.payload)
         let newBasket=[...state.basket];

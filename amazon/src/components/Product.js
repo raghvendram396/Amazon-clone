@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Product.css"
 import {useDispatch,useSelector} from "react-redux";
 import {addtoBasket} from "../action";
@@ -8,8 +8,21 @@ function Product({id,title,price,rating,image}) {
     for(var i=0;i<rating;i++)
     arr.push(i);
     const dispatch=useDispatch();
-    // const curr_basket=useSelector(state => state.basket)
+    const customstle={
+        backgroundColor: "gray",
+        color: "white"
+    }
+    const [clicked,setclicked]=useState(false);
+    useEffect(() => {
+      if(clicked)
+      {
+          setTimeout(function() {
+              setclicked(false)
+          },200)
+      }
+    },[clicked])
  const handleClick=() => {
+    setclicked(true)
      const item={
          id: id,
          title: title,
@@ -34,7 +47,7 @@ function Product({id,title,price,rating,image}) {
               <img className="IMAGE" src={image}></img>
           {/* </div> */}
           <div className="botton">
-          <button onClick={handleClick}>Add to Basket</button>
+          <button onClick={handleClick} style={clicked ? customstle: {}}>Add to Basket</button>
           </div>
           </div>
         </div>

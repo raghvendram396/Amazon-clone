@@ -14,8 +14,10 @@ function CreateAccount() {
         city: "",
         pincode: ""
     })
+    const [signup,setsignup]=useState(false);
     const history=useHistory();
     const handleSubmit=(e) => {
+        setsignup(true);
         e.preventDefault();
         auth.createUserWithEmailAndPassword(userdetail.email,userdetail.password)
         .then((auth) => {console.log(auth);
@@ -34,9 +36,12 @@ function CreateAccount() {
         .then((doc) =>  history.push("/"))
        
     }
-    else {alert("error")}  // this is similar to redirect in node.js
+    else {alert("error")
+         setsignup(false)
+           }  // this is similar to redirect in node.js
     })
-        .catch(error => alert(error.message))
+        .catch(error => {alert(error.message)
+         setsignup(false)})
 
     }
     return (
@@ -51,7 +56,7 @@ function CreateAccount() {
                <input type="text" className="form-control" name="city" value={userdetail.city} placeholder="City*" required onChange={(e) => setuserdetail({...userdetail, city: e.target.value})}></input>
                <input type="text" className="form-control" name="pincode" value={userdetail.pincode} placeholder="Pincode*" required onChange={(e) => setuserdetail({...userdetail, pincode: e.target.value})}></input>
               <p> By signing up, you agree to all terms and conditions of Amazon Clone</p>
-              <button type="submit"> Sign up</button>
+              <button type="submit" disabled={signup}> {signup ? "Processing":"Signup"}</button>
            </form>
         </div>
     )

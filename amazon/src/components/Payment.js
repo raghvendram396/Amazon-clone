@@ -5,10 +5,11 @@ import {useSelector} from "react-redux";
 import CheckoutProduct from './CheckoutProduct';
 import {db} from "../firebase";
 import Card from "./Card";
-import { AccordionDetails } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 // import { CardElement ,useElements, useStripe } from '@stripe/react-stripe-js';
 
 function Payment() {
+    const history=useHistory();
     const basket=useSelector(state => state.basket);
     const user=useSelector(state => state.user);
     const [delievery,setdelievery]=useState({
@@ -17,6 +18,12 @@ function Payment() {
         pincode: ""
     })
     useEffect(() => {
+
+    if(basket.length===0)
+    {
+        alert("Add some items to basket before proceeding to checkout")
+        history.replace("/")
+    }
     if(user) {
         db.collection("user").
         doc(user.uid)

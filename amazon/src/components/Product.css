@@ -51,9 +51,6 @@ justify-content: center;
     border-color: #a88734 #9cfe31 #846a29;
 }
 
-.botton > button:hover {
-  cursor: pointer;
-}
 @media (max-width: 1023px) {
     .IMAGE {
         object-fit: contain;

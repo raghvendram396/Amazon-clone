@@ -35,7 +35,7 @@ function Orders() {
     return (
         
         <div className="orders_returns">
-        { !hidden && <h3 style={{color: "green"}}>Orders palced Successfully!</h3> }
+        { !hidden && <h3 style={{color: "green"}}>Orders placed Successfully!</h3> }
           <h2>Your Orders</h2>
           <div className="orders_orders">
               {orders?.map(order => <Order order={order}/>)}

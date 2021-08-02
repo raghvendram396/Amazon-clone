@@ -5,18 +5,21 @@ import {auth} from "../firebase";
 import {useHistory} from "react-router-dom";
 
 function Login({hidden}) {
+    const [login,setlogin]=useState(false);
     const history=useHistory();
     const [signin,setsignin]=useState({
         email: "",
         password: ""});
         const handleSignin=(e) => {
+            setlogin(true);
             e.preventDefault();
             auth
             .signInWithEmailAndPassword(signin.email,signin.password)
             .then((auth) => {
                 history.push("/");
             })
-            .catch(error => alert(error.message))
+            .catch(error => {alert(error.message)
+            setlogin(false)})
         }
       
     return (
@@ -29,7 +32,7 @@ function Login({hidden}) {
             <input type="email" name="email" value={signin.email} onChange={(e) => setsignin({...signin, email: e.target.value})}></input>
             <label for="Password"><b>Password</b></label>
             <input type="password" value={signin.password} name="Password" onChange={(e) => setsignin({...signin, password: e.target.value})}></input>
-            <button className='button' onClick={handleSignin}>Sign in</button>
+            <button className='button' onClick={handleSignin} disabled={login}>{login ? "Processing":"Sign In"}</button>
             <p>  By signing in, you agree to all terms and conditions of Amazon Clone</p>
             <Link to="/create">
             <button className="create">Create your Amazon Account</button></Link>
