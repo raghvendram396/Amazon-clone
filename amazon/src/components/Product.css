@@ -51,23 +51,41 @@ justify-content: center;
     border-color: #a88734 #9cfe31 #846a29;
 }
 
+.botton > button:hover {
+  cursor: pointer;
+}
 @media (max-width: 1023px) {
     .IMAGE {
         object-fit: contain;
-        height: 150px;
+        max-height: 150px;
     }
 }
 
 @media (max-width: 711px) {
     .IMAGE {
         object-fit: contain;
-        height: 120px;
+        max-height: 120px;
     }
 }
 
 @media (max-width: 601px) {
     .IMAGE {
         object-fit: contain;
-        height: 90px;
+        max-height: 90px;
     }
+}
+
+@media (max-width: 470px)
+{
+.IMAGE {
+    object-fit: contain;
+    max-height: 200px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.botton > button {
+margin-bottom: 20px;
+}
 }

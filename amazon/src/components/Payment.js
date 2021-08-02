@@ -44,11 +44,11 @@ function Payment() {
                 <div className="delieveryheading"><h5>Delievery Address</h5></div>
                 <div className="address"><p>{delievery.address} {delievery.city} {delievery.pincode}</p></div>
             </div>
-            <div className="details">
+            <div className="details smalldetails">
                 <div className="delieveryheading"><h5>Review and Delievery items</h5></div>
                 <div className="paymentitems">{basket.map(item => <CheckoutProduct title={item.title} id={item.id} price={item.price} rating={item.rating} image={item.image} hidden={true} />)}</div>
             </div>
-            <div className="details">
+            <div className="details smalldetailscard">
                 <div className="delieveryheading">
                     <h5>Payment Method</h5>
                     <p>Enter Card details</p>

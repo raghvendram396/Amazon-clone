@@ -48,10 +48,11 @@ function Header() {
          </Link>
          <div className="nav_content"><span className="Lineone">Returns</span>
              <span className="Linetwo">& Orders</span></div>
+             {/* <div className="topclass"> */}
          <div  className="nav_content"><span className="Lineone">Your</span>
              <span className="Linetwo">Prime</span></div>
              <Link to="/checkout">
-         <div className="nav_content basket"> <ShoppingBasketIcon className="" /><small>{basket.length}</small></div></Link>
+         <div className="nav_content basket"> <ShoppingBasketIcon className="shopping" /><small>{basket.length}</small></div></Link>
          </div>
         </div>
     )

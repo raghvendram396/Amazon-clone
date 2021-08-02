@@ -12,7 +12,6 @@
     object-fit: contain;
     width: 180px;
     height: 180px;
-  
 }
 
 .title {
@@ -45,4 +44,11 @@
 .r {
     font-size: 10px;
 }
+}
+
+@media (max-width: 470px) {
+    .productImage {
+        height: 120px;
+        width: 120px;
+    }
 }

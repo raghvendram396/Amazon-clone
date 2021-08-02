@@ -1,10 +1,14 @@
 import React,{useEffect, useState} from 'react'
 import "./Card.css";
 import CurrencyFormat from 'react-currency-format';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from "react-router-dom";
+import { db } from '../firebase';
 function Card() {
+    const [processing,setprocessing]=useState(false);
     const basket=useSelector(state => state.basket);
+    const user=useSelector(state => state.user);
+    const dispatch=useDispatch();
     const [carddetail,setcarddetail]=useState({
         card: "",
         month: "",
@@ -24,13 +28,40 @@ function Card() {
         settotal(basket?.reduce((amount,item) => item.price+amount,0)); 
         },[basket])
         const [hidden,sethidden]=useState(true);
+
+
         const handleClick=() => {
          if(carddetail.card.length!=16 || carddetail.cvv.length!=3) 
          {
          sethidden(false);
         }
         else {
-            history.replace("/orders");
+            setprocessing(true);
+            db.collection("user")
+            .doc(user.uid)
+            .collection("orders")
+            .add({
+                basket: basket,
+                amount: total,
+                date: new Date().getDate(),
+                month: new Date().getMonth(),
+                year: new Date().getFullYear(),
+                time: new Date().toLocaleTimeString()
+            })
+            .then((doc) =>  {
+                dispatch({
+                    type: "SUCCESS",
+                    payload: false
+                })
+                dispatch({
+                    type: "ADD_TO_BASKET",
+                    payload: []
+                })
+            history.replace("/orders")})
+            .catch(err => {
+                alert(err);
+                setprocessing(false)
+            })
         }
         }
     return (
@@ -53,7 +84,7 @@ function Card() {
        />
        
            
-            <button onClick={handleClick}>Buy Now</button>
+            <button onClick={handleClick} disabled={processing}>{processing ? "Processing" : "Buy Now"}</button>
             <h5 style={{color: "red",display: hidden ? "none": "block"}}>Invalid Card details</h5>
         </div>
        

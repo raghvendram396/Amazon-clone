@@ -1,6 +1,7 @@
 const initialstate={
     basket: [],
-    user: null
+    user: null,
+    successHidden: true
 }
 
 const reducer=(state=initialstate,action) => {
@@ -28,6 +29,10 @@ const reducer=(state=initialstate,action) => {
     case "SET_USER": return {
         ...state,
          user: action.payload
+    }
+    case "SUCCESS" : return {
+        ...state,
+        successHidden: action.payload
     }
     default: return state
     }

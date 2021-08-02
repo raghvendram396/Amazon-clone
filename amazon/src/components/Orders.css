@@ -1,0 +1,15 @@
+.orders_returns {
+    margin: 0;
+    background-color: rgb(243,237,237);
+    padding: 20px 80px;
+}
+
+.orders_returns > h2 {
+    margin: 30px 0;
+}
+
+@media (max-width: 631px) {
+    .orders_returns {
+        padding: 10px 20px;
+    }
+}

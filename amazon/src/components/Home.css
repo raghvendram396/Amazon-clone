@@ -20,3 +20,10 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+@media (max-width: 470px) {
+    .items {
+        display: flex;
+        flex-direction: column;
+    }
+}

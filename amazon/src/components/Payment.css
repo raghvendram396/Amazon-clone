@@ -28,8 +28,7 @@
 
 .delieveryheading {
 margin-right: 30px;
-margin-top: auto;
-margin-bottom: auto;
+
 }
 
 .address {
@@ -46,4 +45,21 @@ flex-direction: column;
 
 .paymentcard {
     margin-left: 30px;
+}
+
+@media (max-width: 610px) {
+    .smalldetails {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (max-width: 470px) {
+   .smalldetailscard {
+       display: flex;
+       flex-direction: column;
+   }
+    .paymentcard {
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
