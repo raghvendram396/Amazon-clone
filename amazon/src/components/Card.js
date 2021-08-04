@@ -65,9 +65,9 @@ function Card() {
         }
     return (
         <div className="card">
-                <input type="text" placeholder="Card number" name="card" className="form-control" value={carddetail.card} onChange={handleChange}></input>
-            <input placeholder="MM/YY" name="month" className="form-control" value={carddetail.month} onChange={handleChange}></input>
-            <input placeholder="CVV" name="cvv"  className="form-control" value={carddetail.cvv} onChange={handleChange}></input>
+                <input type="text" placeholder="Card number" type="number" name="card" className="form-control" value={carddetail.card} onChange={handleChange}></input>
+            <input placeholder="MM/YY" name="month" type="number" className="form-control" value={carddetail.month} onChange={handleChange}></input>
+            <input placeholder="CVV" name="cvv" type="number" className="form-control" value={carddetail.cvv} onChange={handleChange}></input>
             <CurrencyFormat 
            renderText={(value) => (
             <>
@@ -79,7 +79,7 @@ function Card() {
            value={total}
            displayType={"text"}
            thousandSeparator={true}
-           prefix={"$"}
+           prefix={"Rs. "}
        />
        
            

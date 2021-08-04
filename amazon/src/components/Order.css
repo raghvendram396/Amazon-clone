@@ -1,6 +1,7 @@
 .order_return {
     padding: 40px;
     margin: 20px 0;
+    margin-right: -10px;
     border: 1px solid lightgray;
     background-color: white;
      position: relative; 
@@ -17,3 +18,11 @@
     text-align: right;
 }
 
+
+@media (max-width: 480px)
+{
+    .order_return {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+}
