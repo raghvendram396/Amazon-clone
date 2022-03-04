@@ -5,6 +5,8 @@ import CurrencyFormat from 'react-currency-format'
 
 function Order({order}) {
     return (
+
+        
         <div className="order_return">
         <h2>Order</h2>
         <p>{order.data.date}/{order.data.month+1}/{order.data.year} {order.time}</p>

@@ -15,8 +15,14 @@ function Login({hidden}) {
             e.preventDefault();
             auth
             .signInWithEmailAndPassword(signin.email,signin.password)
-            .then((auth) => {
-                history.push("/");
+            .then((userCredential) => {
+                console.log(userCredential.user.emailVerified)
+                if(!userCredential.user.emailVerified)
+                {  auth.signOut();
+                    alert("Verify email before signing in");
+                    history.push("/");
+                }
+                else history.push("/");
             })
             .catch(error => {alert(error.message)
             setlogin(false)})
@@ -24,7 +30,8 @@ function Login({hidden}) {
       
     return (
         <div className="login">
-        <img className="image" src="http://media.corporate-ir.net/media_files/IROL/17/176060/Oct18/Amazon%20logo.PNG"></img>
+        <Link to="/">
+        <img className="image" src="http://media.corporate-ir.net/media_files/IROL/17/176060/Oct18/Amazon%20logo.PNG"></img></Link>
         {hidden && <h1 style={{color: "red"}}>Login Required before proceeding to checkout</h1>}
         <div className="form">
         <h3>Sign In</h3>

@@ -18,7 +18,9 @@ function Payment() {
         pincode: ""
     })
     useEffect(() => {
-
+    if(!user){
+        history.replace("/login")
+    }
     if(basket.length===0)
     {
         alert("Add some items to basket before proceeding to checkout")

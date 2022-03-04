@@ -1,0 +1,13 @@
+.Home {
+    display: flex;
+    flex-direction: column;    
+    background-color: rgb(243,237,237);
+}
+
+.button{
+    background: #f0c14b;
+    border-color: #a88734 #9c7e31 #846a29;
+    margin-top: 5px;
+    border-radius: 2px;
+    width: 15%;
+}

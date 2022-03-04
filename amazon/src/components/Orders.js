@@ -1,3 +1,4 @@
+
 import React, { useEffect , useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { db } from '../firebase';
@@ -23,6 +24,7 @@ function Orders() {
        db.collection("user")
        .doc(user?.uid)
        .collection("orders")
+       .orderBy("datestring","desc")
        .onSnapshot(snapshot => (
            setorders(snapshot.docs.map(doc => ({
                id: doc.id,
@@ -33,7 +35,6 @@ function Orders() {
    else setorders([]);
   },[user])
     return (
-        
         <div className="orders_returns">
         { !hidden && <h3 style={{color: "green"}}>Orders placed Successfully!</h3> }
           <h2>Your Orders</h2>

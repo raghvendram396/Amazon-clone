@@ -1,7 +1,9 @@
 const initialstate={
     basket: [],
     user: null,
-    successHidden: true
+    successHidden: true,
+    search:"",
+    search_click: false
 }
 
 const reducer=(state=initialstate,action) => {
@@ -37,6 +39,14 @@ const reducer=(state=initialstate,action) => {
     case "SUCCESS" : return {
         ...state,
         successHidden: action.payload
+    }
+    case "SET_SEARCH": return {
+        ...state,
+        search: action.payload
+    }
+    case "SET_CLICK": return {
+        ...state,
+        search_click: action.payload
     }
     default: return state
     }

@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react'
 import "./Checkout.css"
 import CurrencyFormat from "react-currency-format"
 import {useSelector,useDispatch} from "react-redux";
-import {db} from "../firebase";
+import {auth, db} from "../firebase";
 
 import CheckoutProduct from './CheckoutProduct';
 import {Link} from "react-router-dom";
@@ -21,6 +21,7 @@ function Checkout() {
         snapshot.docs.map(doc => (setName(doc.data().name)))
         ))  
      }
+     else setName("");
     },[basket,user])
   const handleProceed=() => {
       if(!user)
@@ -33,6 +34,7 @@ function Checkout() {
             <h4>Hello {name==="" ? "Guest" : name}</h4>
             <div >
                 <h3>Your Shopping Basket</h3>
+                <hr></hr>
                 <div className="checkoutItems">
                  {basket.map((item) => <CheckoutProduct id={item.id} price={item.price} title={item.title} image={item.image} rating={item.rating} />)}
                 </div>

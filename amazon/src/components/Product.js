@@ -4,6 +4,7 @@ import {useDispatch,useSelector} from "react-redux";
 import {addtoBasket} from "../action";
 
 function Product({id,title,price,rating,image}) {
+    const basket=useSelector(state=>state.basket);
     let arr=[];
     for(var i=0;i<rating;i++)
     arr.push(i);
@@ -31,6 +32,7 @@ function Product({id,title,price,rating,image}) {
          image: image
      }
    dispatch(addtoBasket(item));
+   console.log("lenght",basket.length);
  }
     return (
         <div className="Product">

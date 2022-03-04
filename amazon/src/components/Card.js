@@ -25,8 +25,13 @@ function Card() {
         sethidden(true);
     }
     useEffect(() => {
+        //   if(!user)
+        //   {
+        //   alert("Please Login into your account first");
+        //   history.push("/login");
+        //   }
         settotal(basket?.reduce((amount,item) => item.price+amount,0)); 
-        },[basket])
+        },[basket,user])
         const [hidden,sethidden]=useState(true);
 
 
@@ -38,7 +43,7 @@ function Card() {
         else {
             setprocessing(true);
             db.collection("user")
-            .doc(user.uid)
+            .doc(user?.uid)
             .collection("orders")
             .add({
                 basket: basket,
@@ -46,7 +51,8 @@ function Card() {
                 date: new Date().getDate(),
                 month: new Date().getMonth(),
                 year: new Date().getFullYear(),
-                time: new Date().toLocaleTimeString()
+                time: new Date().toLocaleTimeString(),
+                datestring: toString(new Date().getFullYear)+"/"+toString(new Date().getMonth())+"/"+toString(new Date().getDate())+"/"+toString(new Date().toLocaleTimeString())
             })
             .then((doc) =>  {
                 dispatch({
@@ -65,7 +71,7 @@ function Card() {
         }
     return (
         <div className="card">
-                <input type="text" placeholder="Card number" type="number" name="card" className="form-control" value={carddetail.card} onChange={handleChange}></input>
+            <input type="text" placeholder="Card number" type="number" name="card" className="form-control" value={carddetail.card} onChange={handleChange}></input>
             <input placeholder="MM/YY" name="month" type="number" className="form-control" value={carddetail.month} onChange={handleChange}></input>
             <input placeholder="CVV" name="cvv" type="number" className="form-control" value={carddetail.cvv} onChange={handleChange}></input>
             <CurrencyFormat 
